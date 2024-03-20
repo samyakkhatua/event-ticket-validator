@@ -1,6 +1,5 @@
+// pat0XuHWHc4WJyCLY.c42c3508fea4ca46dea4ac43230bad4c69e3c6731dfaabfb1a13a280966f94a0
 let html5QrCode;
-const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
-
 const cameraSelect = document.getElementById('camera-select');
 const resultSection = document.getElementById('result-section');
 const validationResult = document.getElementById('validation-result');
@@ -55,7 +54,7 @@ function fetchTicketInfo(ticketId) {
     const url = `https://api.airtable.com/v0/appHcqILrocIA2Vyh/tblSQfSCBSn5MnbY4?filterByFormula=%7BUnique+ID%7D%3D"${ticketId}"`;
     fetch(url, {
         headers: {
-            Authorization: "Bearer ${AIRTABLE_API_KEY}"
+            Authorization: "Bearer pat0XuHWHc4WJyCLY.c42c3508fea4ca46dea4ac43230bad4c69e3c6731dfaabfb1a13a280966f94a0"
         }
     })
     .then(response => response.json())
@@ -78,7 +77,7 @@ function fetchTicketInfo(ticketId) {
 function showResult(data, isValid) {
     resultSection.classList.remove('hidden');
     scanAgainButton.classList.remove('hidden');
-    validationResult.innerHTML = isValid ? `<h3>Valid Ticket</h3><p>Name: ${data["Name"]}</p><p>Email: ${data["Email"]}</p><p>Phone Number: ${data["Phone Number"]}</p><img src="green-tick.png" alt="Valid"/>` : `<h3>No Ticket Found</h3><img src="red-tick.png" alt="Invalid"/>`;
+    validationResult.innerHTML = isValid ? `<h3>✅ Valid Ticket</h3><p>Name: ${data["Name"]}</p><p>Email: ${data["Email"]}</p><p>Phone Number: ${data["Phone Number"]}</p>` : `<h3>❌ No Ticket Found</h3>`;
 }
 
 // Handles successful QR scans
