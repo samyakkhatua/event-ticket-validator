@@ -102,10 +102,12 @@ scanAgainButton.addEventListener('click', () => {
     startScanner(cameraSelect.value); // Restart scanner with the currently selected camera
 });
 
-// Initial camera setup and scanner start
 Html5Qrcode.getCameras().then(devices => {
     if (devices && devices.length) {
         populateCameraSelect(devices);
-        startScanner(devices[0].id); // Start scanner with the first camera by default
+        // Attempt to find a back camera by default
+        const backCamera = devices.find(camera => camera.label.toLowerCase().includes('back') || camera.label.toLowerCase().includes('rear'));
+        const defaultCameraId = backCamera ? backCamera.id : devices[0].id;
+        startScanner(defaultCameraId); // Start scanner with the default back camera or the first camera if not found
     }
 }).catch(err => console.error("Unable to get cameras", err));
