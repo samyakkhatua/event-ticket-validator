@@ -9,12 +9,11 @@
 <body>
 
 <div id="scanner-container"></div>
-<div id="result-popup" class="hidden">
-    <div class="result-content">
-        <h2>Validation Result</h2>
-        <div id="validation-result"></div>
-        <button id="close-popup">Close</button>
-    </div>
+<div id="loading-screen" class="hidden">Validating...</div>
+<div id="result-section" class="hidden">
+    <h2>Validation Result</h2>
+    <div id="validation-result"></div>
+    <button id="scan-again" class="hidden">Scan Again</button>
 </div>
 
 <script src="https://unpkg.com/html5-qrcode"></script>
