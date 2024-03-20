@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Event Ticket Scanner</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Validator</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="reader" class="qr-reader"></div>
-<div id="popup" class="popup">
-    <div id="user-info"></div>
-    <div id="status-icon"></div>
-    <button onclick="closePopup()">Close</button>
+<div id="scanner-container"></div>
+<div id="result-popup" class="hidden">
+    <div class="result-content">
+        <h2>Validation Result</h2>
+        <div id="validation-result"></div>
+        <button id="close-popup">Close</button>
+    </div>
 </div>
 
 <script src="https://unpkg.com/html5-qrcode"></script>
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
